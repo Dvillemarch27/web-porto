@@ -61,7 +61,7 @@ span {
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(135deg, rgba(13, 33, 75, 0.85) 0%, rgba(9, 21, 48, 0.95) 100%), 
-                url('img/logo.png') no-repeat center center/cover;
+                url('logo.png') no-repeat center center/cover;
     color: #ffffff;
     padding: 0 8%;
 }
