@@ -682,14 +682,15 @@ span {
 
 
 /* ==========================================================================
-   RESPONSIVE LAYOUT (MEDIA QUERIES)
+   RESPONSIVE LAYOUT (MEDIA QUERIES MODIFIED FOR ROW RETENTION)
    ========================================================================== */
 @media (max-width: 1024px) {
-    .portfolio-grid, 
-    .skills-grid { 
+    .portfolio-grid { 
         grid-template-columns: repeat(2, 1fr); 
     }
-    .about-container, 
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
     .skills-container, 
     .contact-container { 
         flex-direction: column; 
@@ -699,11 +700,20 @@ span {
         flex-wrap: wrap; 
         gap: 30px; 
     }
+    
+    /* Mempertahankan row pada seksi About di tablet */
+    .about-container {
+        flex-direction: row !important;
+        gap: 30px;
+    }
+    .main-img-box {
+        height: 500px;
+    }
 }
 
 @media (max-width: 768px) {
     .hero-content h1 { 
-        font-size: 38px; 
+        font-size: 32px; 
     }
     .nav-links { 
         display: none; 
@@ -717,5 +727,75 @@ span {
         flex-direction: column; 
         gap: 20px; 
         text-align: center; 
+    }
+
+    /* CRITICAL: Memaksa Tampilan "Tentang Saya" Tetap Horizontal Berdampingan di HP */
+    .about {
+        padding: 60px 4%;
+    }
+    .about-container {
+        flex-direction: row !important; /* Paksa tetap horizontal */
+        gap: 15px;
+        align-items: flex-start;
+    }
+    .about-image-side {
+        flex: 1;
+    }
+    .about-text-side {
+        flex: 1.2;
+    }
+    
+    /* Menyesuaikan Tinggi Kotak Foto di HP agar tidak merusak layout */
+    .main-img-box {
+        height: 380px; 
+        width: 100%;
+    }
+    
+    /* Menyesuaikan Name Tag Biru di bawah foto agar pas di HP */
+    .name-tag {
+        padding: 12px;
+        width: 110%;
+        bottom: -10px;
+        left: -5px;
+        border-radius: 8px;
+    }
+    .name-tag h3 { font-size: 11px; }
+    .name-tag p { font-size: 8px; margin-bottom: 5px; }
+    .name-tag .signature { font-size: 7px; padding-top: 5px; }
+
+    /* Menyesuaikan ukuran teks deskripsi di HP */
+    .about-text-side h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .about-desc {
+        font-size: 11px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    .section-tag {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    /* Mengecilkan Fitur List Poin Poin Keahlian */
+    .features-list {
+        gap: 12px;
+    }
+    .feature-item {
+        gap: 8px;
+    }
+    .feature-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+    .feature-text h4 {
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+    .feature-text p {
+        font-size: 10px;
+        line-height: 1.4;
     }
 }
