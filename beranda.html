@@ -8,6 +8,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="beranda.css">
     <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        /* CSS Popup Notifikasi Desktop Mode */
+        .desktop-notice-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(13, 27, 62, 0.95);
+            z-index: 99999;
+            align-items: center; justify-content: center;
+            padding: 20px;
+        }
+        .desktop-notice-box {
+            background: #ffffff;
+            color: #333333;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .desktop-notice-box i {
+            font-size: 50px;
+            color: #0b63e5;
+            margin-bottom: 15px;
+        }
+        .desktop-notice-box h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        .desktop-notice-box p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .desktop-notice-btn {
+            background: #0b63e5;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 
@@ -336,6 +383,20 @@
             <a href="#" class="btn-to-top"><i class="fa-solid fa-arrow-up"></i></a>
         </div>
     </footer>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const ua = navigator.userAgent.toLowerCase();
+            const isAndroid = ua.indexOf("android") > -1;
+            
+            // Cek jika user menggunakan Android DAN tidak dalam mode desktop asli
+            if (isAndroid) {
+                document.getElementById('desktopNotice').style.display = 'flex';
+            }
+        });
 
+        function closeNotice() {
+            document.getElementById('desktopNotice').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
